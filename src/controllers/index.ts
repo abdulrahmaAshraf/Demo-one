@@ -6,3 +6,4 @@ export * from './admin/admin-products.controller';
 export * from './guest/guest-products.controller';
 export * from './admin/admin-users.controller';
 export * from './guest/guest-users.controller';
+export * from './users/user.controller';

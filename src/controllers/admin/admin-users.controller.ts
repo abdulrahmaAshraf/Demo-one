@@ -16,6 +16,7 @@ import {
   del,
   requestBody,
   response,
+  api,
 } from '@loopback/rest';
 import {User} from '../../models';
 import {UserRepository} from '../../repositories';
@@ -26,7 +27,7 @@ export class AdminUsersController {
     public userRepository : UserRepository,
   ) {}
 
-  @post('/users')
+  @post('/admins/users')
   @response(200, {
     description: 'User model instance',
     content: {'application/json': {schema: getModelSchemaRef(User)}},
@@ -47,7 +48,7 @@ export class AdminUsersController {
     return this.userRepository.create(user);
   }
 
-  @get('/users/count')
+  @get('/admins/users/count')
   @response(200, {
     description: 'User model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +59,7 @@ export class AdminUsersController {
     return this.userRepository.count(where);
   }
 
-  @get('/users')
+  @get('/admins/users')
   @response(200, {
     description: 'Array of User model instances',
     content: {
@@ -76,7 +77,7 @@ export class AdminUsersController {
     return this.userRepository.find(filter);
   }
 
-  @patch('/users')
+  @patch('/admins/users')
   @response(200, {
     description: 'User PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +96,7 @@ export class AdminUsersController {
     return this.userRepository.updateAll(user, where);
   }
 
-  @get('/users/{id}')
+  @get('/admins/users/{id}')
   @response(200, {
     description: 'User model instance',
     content: {
@@ -111,7 +112,7 @@ export class AdminUsersController {
     return this.userRepository.findById(id, filter);
   }
 
-  @patch('/users/{id}')
+  @patch('/admins/users/{id}')
   @response(204, {
     description: 'User PATCH success',
   })
@@ -129,7 +130,7 @@ export class AdminUsersController {
     await this.userRepository.updateById(id, user);
   }
 
-  @put('/users/{id}')
+  @put('/admins/users/{id}')
   @response(204, {
     description: 'User PUT success',
   })
@@ -140,7 +141,7 @@ export class AdminUsersController {
     await this.userRepository.replaceById(id, user);
   }
 
-  @del('/users/{id}')
+  @del('/admins/users/{id}')
   @response(204, {
     description: 'User DELETE success',
   })

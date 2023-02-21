@@ -1,10 +1,19 @@
 import {Entity, model, property, belongsTo} from '@loopback/repository';
 import {User} from './user.model';
 
-@model({settings: {strict: false}})
+@model({settings: {
+  foreignKeys: {
+    fk_todo_todoListId: {
+      name: 'fk_product_userId',
+      entity: 'users',
+      entityKey: 'id',
+      foreignKey: 'userId',
+    },
+  }
+}})
 export class Products extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
     generated: true,
   })

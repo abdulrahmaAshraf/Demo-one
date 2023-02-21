@@ -1,12 +1,11 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Products} from './products.model';
 
-@model({settings: {strict: false}})
+@model({settings: {strict: true}})
 export class User extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
-    generated: true,
   })
   id?: string;
 
@@ -24,7 +23,6 @@ export class User extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   password: string;
 
