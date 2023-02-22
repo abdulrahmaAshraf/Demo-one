@@ -28,8 +28,16 @@ export class ErrorHandlerMiddlewareProvider implements Provider<Middleware> {
       ctx: MiddlewareContext,
       next: Next,
     ) => {
+      const {request } = ctx;
       try {
-        return await next();
+        const res = await next();
+        
+        console.log(
+          'Response received for %s %s',
+          request.method,
+          request.originalUrl,
+        );
+        return res;
       } catch (err) {
         // Any error handling goes here
         return this.handleError(ctx, err);
@@ -39,8 +47,6 @@ export class ErrorHandlerMiddlewareProvider implements Provider<Middleware> {
   }
 
   handleError(context: MiddlewareContext, err: HttpErrors.HttpError): Response {
-    // We simply log the error although more complex scenarios can be performed
-    // such as customizing errors for a specific endpoint
     this.logError(err, err.statusCode, context.request);
     throw err;
   }

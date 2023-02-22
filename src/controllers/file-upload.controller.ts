@@ -1,12 +1,8 @@
-// Uncomment these imports to begin using these cool features!
-
 import { authenticate } from "@loopback/authentication";
 import { inject } from "@loopback/core";
 import { post, Request, requestBody, Response, RestBindings } from "@loopback/rest";
 import { FileUploadService } from "../keys";
 import { FileUploadHandler } from "../types";
-
-// import {inject} from '@loopback/core';
 
 
 export class FileUploadController {
