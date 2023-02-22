@@ -16,7 +16,6 @@ import { AuthenticationComponent } from '@loopback/authentication';
 import { UserManagementService } from './services/user-management.service';
 import crypto from 'crypto';
 import { ErrorHandlerMiddlewareProvider } from './middlewares';
-import { UserRepository } from './repositories';
  
 export {ApplicationConfig};
 
