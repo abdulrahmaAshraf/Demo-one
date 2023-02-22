@@ -4,6 +4,7 @@ export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new DemotestApplication(options);
+
   await app.boot();
   await app.start();
 

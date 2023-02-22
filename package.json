@@ -52,12 +52,14 @@
     "bcryptjs": "^2.4.3",
     "isemail": "^3.2.0",
     "loopback-connector-postgresql": "^5.5.2",
+    "multer": "^1.4.5-lts.1",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@loopback/testlab": "^5.0.8",
     "@types/bcryptjs": "^2.4.2",
     "@types/jest": "^29.4.0",
+    "@types/multer": "^1.4.7",
     "@types/node": "^14.18.36",
     "prettier": "^2.8.3",
     "rimraf": "^3.0.2",

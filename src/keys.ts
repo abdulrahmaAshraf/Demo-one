@@ -8,6 +8,7 @@ import {BindingKey} from '@loopback/context';
 import {User} from './models';
 import {Credentials} from './repositories';
 import {PasswordHasher} from './services/hash.password.bcryptjs';
+import { FileUploadHandler } from './types';
 
 export namespace PasswordHasherBindings {
   export const PASSWORD_HASHER =
@@ -20,3 +21,14 @@ export namespace UserServiceBindings {
     'services.user.service',
   );
 }
+
+export namespace FileUploadService {
+  export const FILE_UPLOAD_SERVICE = BindingKey.create<FileUploadHandler>(
+    'services.FileUpload',
+  );
+}
+
+/**
+ * Binding key for the storage directory
+ */
+export const STORAGE_DIRECTORY = BindingKey.create<string>('storage.directory');
