@@ -66,9 +66,6 @@ export class DemotestApplication extends BootMixin(RepositoryMixin(RestApplicati
 
   async migrateSchema(options?: SchemaMigrationOptions): Promise<void> {
     await super.migrateSchema(options);
-
-    const userRepo = await this.getRepository(UserRepository);
-    await userRepo.deleteAll();
   }
 
   setUpBindings(): void {

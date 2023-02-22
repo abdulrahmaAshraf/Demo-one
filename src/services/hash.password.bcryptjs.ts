@@ -3,15 +3,11 @@ import {compare} from 'bcryptjs';
 import {inject} from '@loopback/core';
 import {PasswordHasherBindings} from '../keys';
 
-/**
- * Service HashPassword using module 'bcryptjs'.
- * It takes in a plain password, generates a salt with given
- * round and returns the hashed password as a string
- */
 export type HashPassword = (
   password: string,
   rounds: number,
 ) => Promise<string>;
+
 // bind function to `services.bcryptjs.HashPassword`
 export async function hashPassword(
   password: string,
