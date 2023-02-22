@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -31,6 +32,7 @@ export class AdminProductsController {
     description: 'Product model instance',
     content: {'application/json': {schema: getModelSchemaRef(Product)}},
   })
+  @authenticate('jwt')
   async create(
     @requestBody({
       content: {
@@ -81,6 +83,7 @@ export class AdminProductsController {
     description: 'Product PATCH success count',
     content: {'application/json': {schema: CountSchema}},
   })
+  @authenticate('jwt')
   async updateAll(
     @requestBody({
       content: {
@@ -104,6 +107,7 @@ export class AdminProductsController {
       },
     },
   })
+  @authenticate('jwt')
   async findById(
     @param.path.number('id') id: number,
     @param.filter(Product, {exclude: 'where'}) filter?: FilterExcludingWhere<Product>
@@ -115,6 +119,7 @@ export class AdminProductsController {
   @response(204, {
     description: 'Product PATCH success',
   })
+  @authenticate('jwt')
   async updateById(
     @param.path.number('id') id: number,
     @requestBody({
@@ -133,6 +138,7 @@ export class AdminProductsController {
   @response(204, {
     description: 'Product PUT success',
   })
+  @authenticate('jwt')
   async replaceById(
     @param.path.number('id') id: number,
     @requestBody() product: Product,
@@ -141,6 +147,7 @@ export class AdminProductsController {
   }
 
   @del('/admins/products/{id}')
+  @authenticate('jwt')
   @response(204, {
     description: 'Product DELETE success',
   })
