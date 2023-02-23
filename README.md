@@ -22,6 +22,7 @@ npm ci
 
 ```sh
 npm start
+or to start nodemon run: npm run start:dev 
 ```
 
 You can also run `node .` to skip the build step.
